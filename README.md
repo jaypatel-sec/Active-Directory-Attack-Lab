@@ -28,17 +28,17 @@ policies to simulate the conditions commonly found in real enterprise environmen
 
 ## Kill Chain — 9 Attack Steps
 
-| # | Attack | MITRE ID | Technique Summary | Status |
-|---|---|---|---|---|
-| 01 | LLMNR Poisoning | T1557.001 | Intercept LLMNR/NBT-NS broadcasts to capture NTLMv2 hashes from any host that sends a failed name resolution request | ⏳ Pending |
-| 02 | NTLMv2 Relay | T1557.001 | Relay captured NTLMv2 credentials to other machines on the network to authenticate as the victim without cracking the hash | ⏳ Pending |
-| 03 | Password Spraying | T1110.003 | Test one or a small number of commonly used passwords against every domain account to avoid lockout thresholds | ⏳ Pending |
-| 04 | Kerberoasting | T1558.003 | Request Kerberos service tickets for accounts with SPNs and crack the RC4-encrypted tickets offline | ⏳ Pending |
-| 05 | AS-REP Roasting | T1558.004 | Request AS-REP responses for accounts with pre-authentication disabled and crack the encrypted portion offline | ⏳ Pending |
-| 06 | Pass the Hash | T1550.002 | Authenticate to remote services using a captured NTLM hash without recovering the plaintext password | ⏳ Pending |
-| 07 | Pass the Ticket | T1550.003 | Inject a stolen Kerberos ticket into the current session to impersonate a user and access resources | ⏳ Pending |
-| 08 | Golden Ticket | T1558.001 | Forge a Kerberos TGT using the KRBTGT account hash to gain persistent, unlimited domain access | ⏳ Pending |
-| 09 | DCSync | T1003.006 | Abuse domain replication privileges to pull NTLM hashes for all domain accounts directly from the DC | ⏳ Pending |
+| # | Attack | Technique Summary | Status |
+|---|---|---|---|
+| 01 | LLMNR Poisoning | Intercept LLMNR/NBT-NS broadcasts to capture NTLMv2 hashes from any host that sends a failed name resolution request | ⏳ Pending |
+| 02 | NTLMv2 Relay | Relay captured NTLMv2 credentials to other machines on the network to authenticate as the victim without cracking the hash | ⏳ Pending |
+| 03 | Password Spraying | Test one or a small number of commonly used passwords against every domain account to avoid lockout thresholds | ⏳ Pending |
+| 04 | Kerberoasting | Request Kerberos service tickets for accounts with SPNs and crack the RC4-encrypted tickets offline | ⏳ Pending |
+| 05 | AS-REP Roasting | Request AS-REP responses for accounts with pre-authentication disabled and crack the encrypted portion offline | ⏳ Pending |
+| 06 | Pass the Hash | Authenticate to remote services using a captured NTLM hash without recovering the plaintext password | ⏳ Pending |
+| 07 | Pass the Ticket | Inject a stolen Kerberos ticket into the current session to impersonate a user and access resources | ⏳ Pending |
+| 08 | Golden Ticket | Forge a Kerberos TGT using the KRBTGT account hash to gain persistent, unlimited domain access | ⏳ Pending |
+| 09 | DCSync | Abuse domain replication privileges to pull NTLM hashes for all domain accounts directly from the DC | ⏳ Pending |
 
 ---
 
@@ -119,7 +119,7 @@ and the OSCP Active Directory sets.
 ## Certification Alignment
 
 | Certification | Relevant Techniques |
-|---|---|
+|---|—--|
 | eJPT | Password Spraying, basic credential attacks |
 | HTB CPTS | Full kill chain — all 9 steps |
 | OSCP | Kerberoasting, AS-REP, Pass the Hash, DCSync |
