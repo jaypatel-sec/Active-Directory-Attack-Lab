@@ -1,13 +1,13 @@
 # Active Directory Attack Lab — Jay Patel
 
 A complete 9-step Active Directory kill chain executed end-to-end in a home lab environment.
-This lab documents the full offensive attack path from initial network-level credential poisoning
-through domain persistence — covering the techniques that appear most frequently in real-world
+This lab documents the full offensive attack path from initial credential capture through
+domain persistence — covering the techniques that appear most frequently in real-world
 Active Directory penetration tests and are tested directly in CPTS and OSCP.
 
 Every attack folder contains the prerequisites, the exact commands run, real lab output, and a
 detailed breakdown of what each step accomplishes and why it works. The goal is to build a
-reproduce-ready reference for every stage of the AD kill chain that can be used during actual
+step-by-step reference for every stage of the AD kill chain that can be used during actual
 engagements and certification labs.
 
 ---
@@ -20,9 +20,9 @@ engagements and certification labs.
 | Windows Server 2022 | Domain Controller | Windows Server 2022 |
 | Windows 10 22H2 | Victim workstation | Windows 10 22H2 |
 
-The lab is built on a private virtual network with the domain controller fully configured with
-Active Directory Domain Services, DNS, and a set of intentionally misconfigured accounts and
-policies to simulate the conditions commonly found in real enterprise environments.
+The lab runs on a private virtual network. The domain controller is fully configured with
+Active Directory Domain Services and DNS, with intentionally misconfigured accounts and
+policies that simulate conditions commonly found in real enterprise environments.
 
 ---
 
@@ -100,13 +100,13 @@ The kill chain is sequenced to reflect how a real engagement progresses from ini
 to full domain compromise. Each step builds on the previous:
 
 ```
-Passive Credential Capture (LLMNR/NTLMv2)
+Passive Credential Capture (LLMNR / NTLMv2)
         ↓
-Lateral Movement Preparation (Relay, Spray)
+Credential Access (Relay, Password Spraying)
         ↓
-Privilege Escalation (Kerberoasting, AS-REP)
+Privilege Escalation (Kerberoasting, AS-REP Roasting)
         ↓
-Domain User → Domain Admin (PTH, PTT)
+Domain User → Domain Admin (Pass the Hash, Pass the Ticket)
         ↓
 Full Domain Compromise + Persistence (Golden Ticket, DCSync)
 ```
@@ -119,7 +119,7 @@ and the OSCP Active Directory sets.
 ## Certification Alignment
 
 | Certification | Relevant Techniques |
-|---|—--|
+|---|---|
 | eJPT | Password Spraying, basic credential attacks |
 | HTB CPTS | Full kill chain — all 9 steps |
 | OSCP | Kerberoasting, AS-REP, Pass the Hash, DCSync |
